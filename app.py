@@ -16,29 +16,29 @@ external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 #
 # Get the data
 #
-# url = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/covid19_cases_switzerland.csv"
-url = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/covid19_cases_switzerland.csv"
+url = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/covid19_cases_switzerland.csv"
+# url = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/covid19_cases_switzerland.csv"
 df = pd.read_csv(url, error_bad_lines=False)
 
-# accr_categories = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/accr_categories.csv"
-accr_categories = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/accr_categories.csv"
+accr_categories = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/accr_categories.csv"
+# accr_categories = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/accr_categories.csv"
 df_accr_categories = pd.read_csv(accr_categories, error_bad_lines=False)
 
-# euro_2020_venues = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/accr_categories.csv"
-euro_2020_venues = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/euro2020_venues.csv"
+euro_2020_venues = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/accr_categories.csv"
+# euro_2020_venues = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/euro2020_venues.csv"
 df_euro_2020_venues = pd.read_csv(euro_2020_venues, error_bad_lines=False)
 df_euro_2020_venues = df_euro_2020_venues.sort_values(by=['Venue'])
 
-# url_fatalities = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/covid19_fatalities_switzerland.csv"
-url_fatalities = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/covid19_fatalities_switzerland.csv"
+url_fatalities = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/covid19_fatalities_switzerland.csv"
+# url_fatalities = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/covid19_fatalities_switzerland.csv"
 df_fatalities = pd.read_csv(url_fatalities, error_bad_lines=False)
 
-# url_pred = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/predicted.csv"
-url_pred = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/predicted.csv"
+url_pred = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/predicted.csv"
+# url_pred = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/predicted.csv"
 df_pred = pd.read_csv(url_pred, error_bad_lines=False)
 
-# url_demo = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/demographics.csv"
-url_demo = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/demographics.csv"
+url_demo = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/demographics.csv"
+# url_demo = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/demographics.csv"
 df_demo = pd.read_csv(url_demo, error_bad_lines=False, index_col=0)
 
 df_map = pd.read_csv(
