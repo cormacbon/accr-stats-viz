@@ -197,6 +197,7 @@ data_pred_norm["Date"] = data_pred["Date"]
 #
 # Some nice differentiable colors for the cantons + EUR
 #
+#
 colors = [
     "#7a8871",
     "#a359e3",
