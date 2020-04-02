@@ -13,7 +13,7 @@ table,
 table td,
 table th {
   background-color: transparent !important;
-  color: #2cfec1;
+  color: #4bbdcf;
   border: 1px solid #344158 !important;
 }
 
@@ -34,16 +34,16 @@ table tr:hover {
 }
 
 .total-container .total-content {
-  color: #2cfec1;
+  color: #4bbdcf;
   font-size: 2.5em;
   text-align: center;
-  border: 1px solid #2cfec1;
+  border: 1px solid #4bbdcf;
   border-radius: 2px;
 }
 .tab-container {
   display: inline-block;
   padding: 10px;
-  margin-right: 20px;
+  margin-right: 10px;
   background-color: #252e3f;
 }
 
@@ -53,12 +53,36 @@ table tr:hover {
 }
 
 .tab-container .tab-content {
-  color: #2cfec1;
-  font-size: 2.5em;
+  color: #4bbdcf;
+  font-size: 1.5em;
   text-align: center;
-  border: 1px solid #2cfec1;
+  border: 1px solid #4bbdcf;
   border-radius: 2px;
+  background-color: #252e3f;
+  fill: #252e3f;
 }
+
+.custom-tabs-container {
+    width: 50%;
+}
+.custom-tabs {
+    background-color: #252e3f;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.custom-tab {
+    color: gray !important;
+    border-top: 3px solid gray !important;
+    background-color: gray !important;
+}
+.custom-tab--selected {
+    color: white !important;
+    border-top: 3px solid white !important;
+    background-color: #4bbdcf !important;
+
+
+}
+
 .dash-table-container {
   padding: 10px;
   background-color: #252e3f;
@@ -283,7 +307,7 @@ html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 50%;
-  background-color: #1f2630;
+  background-color: #007aBc;
   max-width: 100% !important;
   width: 100% !important;
   margin: 0;
@@ -295,7 +319,7 @@ body {
   font-weight: 400;
   font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
-  color: #7fafdf;
+  color: #4bbdcf;
   margin: 0;
 }
 
@@ -387,7 +411,7 @@ p {
 
 #description {
   font-size: 1.5rem;
-  border-left: #2cfec1 solid 1rem;
+  border-left: #4bbdcf solid 1rem;
   padding-left: 1rem;
   max-width: 100rem;
   margin: 2rem 0 3rem 0;
@@ -716,11 +740,11 @@ hr {
 
 .rc-slider-dot-active,
 .rc-slider-handle {
-  border-color: #2cfec1 !important;
+  border-color: #4bbdcf !important;
 }
 
 .rc-slider-track {
-  background-color: #2cfec1 !important;
+  background-color: #4bbdcf !important;
 }
 
 .rc-slider-rail {

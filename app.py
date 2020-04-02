@@ -247,7 +247,7 @@ color_scale = [
     "#10523e",
 ]
 
-theme = {"background": "#252e3f", "foreground": "#2cfec1", "accent": "#7fafdf"}
+theme = {"background": "#252e3f", "foreground": "#4bbdcf", "accent": "#7fafdf"}
 
 #
 # General app settings
@@ -272,7 +272,24 @@ columns = [
 app.layout = html.Div(
     id="main",
     children=[
-        html.H4(children="Accreditations Stats - Per Venue"),
+        html.H4(children="Accreditation Stats - Per Venue"),
+        html.Div(
+            id="header",
+            children=[
+                #html.H4(children="Accreditations Stats - Per Venue"),
+                html.P(
+                    id="description",
+                    children=[
+                        dcc.Markdown(
+                            """
+                        Number of accreditations delivered, broken down by category 
+                        Data source is a CSV table, could be app in future (ERT)
+                        """
+                        )
+                    ],
+                ),
+            ],
+        ),
         html.H4(children="Select Venue"),
         html.Div(
             children=[
@@ -291,26 +308,9 @@ app.layout = html.Div(
             ],
         ),
 
-        dcc.Tabs(className="tab-content", id="tabs-example", value='tab-1-example', children=[
-            dcc.Tab(className="tab-content", label='Cockpit', value='tab-1-example', children=[
+        dcc.Tabs(id="tabs-example", value='tab-1-example', parent_className='custom-tabs', className='custom-tabs-container', children=[
+            dcc.Tab(className="tab-content", selected_className='custom-tab--selected', label='Cockpit', value='tab-1-example', children=[
                 html.Div(id='tabs-content-example'),
-                    html.Div(
-                        id="header",
-                        children=[
-                            #html.H4(children="Accreditations Stats - Per Venue"),
-                            html.P(
-                                id="description",
-                                children=[
-                                    dcc.Markdown(
-                                        """
-                                    Number of accreditations delivered, broken down by category 
-                                    Data source is a CSV table, could be app in future (ERT)
-                                    """
-                                    )
-                                ],
-                            ),
-                        ],
-                    ),
                     html.Div(
                         className="row",
                         children=[
@@ -321,10 +321,7 @@ app.layout = html.Div(
                                         className="total-container",
                                         children=[
                                             html.P(className="total-title", children="Total Delivered"),
-                                            html.Div(
-                                                className="total-content",
-                                                children=str(int(cases_total)),
-                                            ),
+                                            html.Div(id='total_cases', className="total-content", children=str(int(cases_total)),),
                                         ],
                                     ),
                                     html.Div(
@@ -333,9 +330,7 @@ app.layout = html.Div(
                                             html.P(
                                                 className="total-title", children="New Requests Today"
                                             ),
-                                            html.Div(
-                                                className="total-content",
-                                                children="+" + str(int(cases_new)),
+                                            html.Div(id='total_new_requests', className="total-content", children="+" + str(int(cases_new)),
                                             ),
                                         ],
                                     ),
@@ -345,9 +340,7 @@ app.layout = html.Div(
                                             html.P(
                                                 className="total-title", children="Total to Deliver (%)"
                                             ),
-                                            html.Div(
-                                                className="total-content",
-                                                children=str(int(fatalities_total)),
+                                            html.Div(id='total_to_deliver', className="total-content", children=str(int(fatalities_total)),
                                             ),
                                         ],
                                     ),
@@ -505,7 +498,7 @@ app.layout = html.Div(
                     ),
 
             ]),
-            dcc.Tab(className="tab-content", label='Data Entry', value='tab-2-example', children=[
+            dcc.Tab(className="tab-content", selected_className='custom-tab--selected', label='Data Entry', value='tab-2-example', children=[
                 dash_table.DataTable(
                     id='table-editing-simple',
                     columns=([
@@ -601,6 +594,23 @@ app.layout = html.Div(
 def update_output(value):
     return 'Data for venue "{}"'.format(value)
 
+@app.callback(
+    [Output("total_cases", "children"), Output("total_new_requests", "children"), Output("total_to_deliver", "children")],
+    [Input("slider-date", "value"), Input("dropdown-venues", "value")],
+)
+def update_totals_boxes(selected_date_index, selected_venues):
+    date = df["Date"].iloc[selected_date_index]
+    #date_cases_new = df["Date"].iloc[selected_date_index]
+    cases_total = 0
+    cases_new = 0
+    fatalities_total = 0
+
+    for venue in selected_venues:
+        cases_total = cases_total + int(df_by_date[venue][date])
+        #cases_new = cases_new + int(df_by_date[venue][date])
+        fatalities_total = fatalities_total + int(df_fatalities_by_date[venue][date])
+
+    return cases_total, cases_new, fatalities_total
 
 @app.callback(
     Output("graph-map", "figure"),
@@ -665,7 +675,7 @@ def update_graph_map(selected_date_index, mode, selected_venues):
                 "type": "choroplethmapbox",
                 "locations": labelz, #canton_labels,
                 "z": [map_data[canton][date] for canton in map_data if canton != "EURO 2021"],
-                "colorscale": [(0, "#7F2238"), (1, "#FF3867")],
+                "colorscale": [(0, "#007aBc"), (1, "#4bbdcf")],
                 "geojson": "/assets/europe5.geojson",
                 "marker": {"line": {"width": 0.0, "color": "#08302A"}},
                 "colorbar": {
@@ -679,9 +689,9 @@ def update_graph_map(selected_date_index, mode, selected_venues):
             "mapbox": {
                 "accesstoken": "pk.eyJ1IjoiZGFlbnVwcm9ic3QiLCJhIjoiY2s3eDR2dmRyMDg0ajN0cDlkaDNmM3J0NyJ9.tcJPFQkbsVGlWpyQaKPtiw",
                 "style": "mapbox://styles/plotlymapbox/cjvprkf3t1kns1cqjxuxmwixz",
-                "center": {"lat": 50.8181877, "lon": 8.2275124},
+                "center": {"lat": 50.00, "lon": 21.00},
                 "pitch": 0,
-                "zoom": 3,
+                "zoom": 3.3,
             },
             "margin": {"l": 0, "r": 0, "t": 0, "b": 0},
             "height": 600,
