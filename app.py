@@ -24,7 +24,7 @@ accr_categories = "https://raw.githubusercontent.com/cormacbon/covid19-cases-swi
 # accr_categories = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/accr_categories.csv"
 df_accr_categories = pd.read_csv(accr_categories, error_bad_lines=False)
 
-euro_2020_venues = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/accr_categories.csv"
+euro_2020_venues = "https://raw.githubusercontent.com/cormacbon/covid19-cases-switzerland/master/euro2020_venues.csv"
 # euro_2020_venues = "C:/Users/cbon/PycharmProjects/covid19-cases-switzerland/euro2020_venues.csv"
 df_euro_2020_venues = pd.read_csv(euro_2020_venues, error_bad_lines=False)
 df_euro_2020_venues = df_euro_2020_venues.sort_values(by=['Venue'])
@@ -197,7 +197,7 @@ data_pred_norm["Date"] = data_pred["Date"]
 #
 # Some nice differentiable colors for the cantons + EUR
 #
-#
+
 colors = [
     "#7a8871",
     "#a359e3",
