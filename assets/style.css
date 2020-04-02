@@ -40,7 +40,25 @@ table tr:hover {
   border: 1px solid #2cfec1;
   border-radius: 2px;
 }
+.tab-container {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 20px;
+  background-color: #252e3f;
+}
 
+.tab-container .tab-title {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.tab-container .tab-content {
+  color: #2cfec1;
+  font-size: 2.5em;
+  text-align: center;
+  border: 1px solid #2cfec1;
+  border-radius: 2px;
+}
 .dash-table-container {
   padding: 10px;
   background-color: #252e3f;
