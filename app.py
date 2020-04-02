@@ -691,7 +691,7 @@ def update_graph_map(selected_date_index, mode, selected_venues):
                 "style": "mapbox://styles/plotlymapbox/cjvprkf3t1kns1cqjxuxmwixz",
                 "center": {"lat": 50.00, "lon": 20.00},
                 "pitch": 0,
-                "zoom": 3.3,
+                "zoom": 3.2,
             },
             "margin": {"l": 0, "r": 0, "t": 0, "b": 0},
             "height": 600,
