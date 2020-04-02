@@ -689,7 +689,7 @@ def update_graph_map(selected_date_index, mode, selected_venues):
             "mapbox": {
                 "accesstoken": "pk.eyJ1IjoiZGFlbnVwcm9ic3QiLCJhIjoiY2s3eDR2dmRyMDg0ajN0cDlkaDNmM3J0NyJ9.tcJPFQkbsVGlWpyQaKPtiw",
                 "style": "mapbox://styles/plotlymapbox/cjvprkf3t1kns1cqjxuxmwixz",
-                "center": {"lat": 50.00, "lon": 21.00},
+                "center": {"lat": 50.00, "lon": 20.00},
                 "pitch": 0,
                 "zoom": 3.3,
             },
