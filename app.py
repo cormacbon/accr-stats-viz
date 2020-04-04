@@ -257,7 +257,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 app.title = "ACCR Stats"
 image_filename = 'assets/EURO2020_Mobile_and_Tablets/Social Media_Facebook_profile_generic.jpg' # replace with your own image
-encoded_image = base64.b64encode(open(image_filename, 'rb').read())
+encoded_image = base64.b64encode(open(image_filename, 'rb').read()).decode('ascii')
 
 
 rows = [
@@ -275,25 +275,27 @@ columns = [
 app.layout = html.Div(
     id="main",
     children=[
-        html.Img(src='data:image/jpg;base64,{}'.format(encoded_image)),
-        html.H4(children="Accreditation Stats - Per Venue"),
-        html.Div(
-            id="header",
-            children=[
-                #html.H4(children="Accreditations Stats - Per Venue"),
-                html.P(
-                    id="description",
-                    children=[
-                        dcc.Markdown(
-                            """
-                        Number of accreditations delivered, broken down by category 
-                        Data source is a CSV table, could be app in future (ERT)
+        html.Div([
+            html.Div([
+                html.H4(children="Accreditation Stats - Per Venue"),
+                html.P([
+                    dcc.Markdown(
                         """
-                        )
-                    ],
-                ),
-            ],
-        ),
+                    Number of accreditations delivered, broken down by category 
+                    Data source is a CSV table, could be app in future (ERT)
+                    """
+                    )
+                ],),
+            ], className="six columns"),
+
+            html.Div([
+                html.Div([
+                    html.Img(src='data:image/jpg;base64,{}'.format(encoded_image), width=75, height=75),
+                ],),
+            ], className="six columns", style={'textAlign': 'right'}),
+        ], className="row"),
+
+
         html.H4(children="Select Venue"),
         html.Div(
             children=[
