@@ -9,6 +9,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import pandas as pd
+import base64
 
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 
@@ -255,6 +256,9 @@ theme = {"background": "#252e3f", "foreground": "#4bbdcf", "accent": "#7fafdf"}
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 app.title = "ACCR Stats"
+image_filename = 'C:/Users/cbon/PycharmProjects/accr-stats-viz/assets/EURO2020_Mobile_and_Tablets/Social Media_Facebook_profile_generic.jpg' # replace with your own image
+encoded_image = base64.b64encode(open(image_filename, 'rb').read())
+
 
 rows = [
     'Broadcast Partner - RADIO', 'Broadcast Partner - TV', 'COMMERCIAL PARTNERS / HOST CITIES',
@@ -268,10 +272,10 @@ columns = [
 #
 # Show the data
 #
-
 app.layout = html.Div(
     id="main",
     children=[
+        html.Img(src='data:image/jpg;base64,{}'.format(encoded_image)),
         html.H4(children="Accreditation Stats - Per Venue"),
         html.Div(
             id="header",
@@ -484,18 +488,18 @@ app.layout = html.Div(
                     #         ),
                     #     ],
                     # ),
-                    html.H4(children="Raw Data", style={"color": theme["accent"]}),
-                    dash_table.DataTable(
-                        id="table",
-                        columns=[{"name": i, "id": i} for i in df.columns],
-                        data=df.to_dict("records"),
-                    ),
-                    html.H4(children="Raw Data (Predicted)", style={"color": theme["accent"]}),
-                    dash_table.DataTable(
-                        id="table_pred",
-                        columns=[{"name": i, "id": i} for i in df_pred.columns],
-                        data=df_pred.to_dict("records"),
-                    ),
+                    # html.H4(children="Raw Data", style={"color": theme["accent"]}),
+                    # dash_table.DataTable(
+                    #     id="table",
+                    #     columns=[{"name": i, "id": i} for i in df.columns],
+                    #     data=df.to_dict("records"),
+                    # ),
+                    # html.H4(children="Raw Data (Predicted)", style={"color": theme["accent"]}),
+                    # dash_table.DataTable(
+                    #     id="table_pred",
+                    #     columns=[{"name": i, "id": i} for i in df_pred.columns],
+                    #     data=df_pred.to_dict("records"),
+                    # ),
 
             ]),
             dcc.Tab(className="tab-content", selected_className='custom-tab--selected', label='Data Entry', value='tab-2-example', children=[

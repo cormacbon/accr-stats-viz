@@ -6,7 +6,10 @@ body {
 
 div#main {
   padding: 20px;
-  background-color: #1f2630;
+  background-image: url("/assets/EURO2020_Mobile_and_Tablets/JPG/EURO2020_Word_Amsterdam_BackCover.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: "Bridge Type", sans-serif;
 }
 
 table,
@@ -88,8 +91,13 @@ table tr:hover {
   background-color: #252e3f;
 }
 
+@import url("/assets/EURO2020_Mobile_and_Tablets/Fonts/BridgeType-Regular 3.otf");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+
+@font-face {
+  font-family: 'BridgeType-Regular 3', sans-serif;
+}
 
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -317,8 +325,7 @@ body {
   font-size: 1.5rem; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
+  font-family: "Bridge Type";
   color: #4bbdcf;
   margin: 0;
 }
@@ -376,8 +383,9 @@ h3 {
 }
 
 h4 {
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Bridge Type", sans-serif;
   font-size: 4rem;
+  color: #ffffff;
   line-height: 1.35;
   letter-spacing: -0.08rem;
   margin-bottom: 1.2rem;
@@ -402,10 +410,11 @@ h6 {
 
 p {
   margin-top: 0;
+  color: #ffffff;
 }
 
 #heatmap-title {
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Bridge Type", sans-serif;
   font-size: 2rem;
 }
 
