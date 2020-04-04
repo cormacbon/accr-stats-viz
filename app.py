@@ -248,7 +248,7 @@ color_scale = [
     "#10523e",
 ]
 
-theme = {"background": "#252e3f", "foreground": "#4bbdcf", "accent": "#7fafdf"}
+theme = {"background": "#252e3f", "foreground": "#4bbdcf", "accent": "#ffffff"}
 
 #
 # General app settings
