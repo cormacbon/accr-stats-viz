@@ -256,7 +256,7 @@ theme = {"background": "#252e3f", "foreground": "#4bbdcf", "accent": "#7fafdf"}
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 app.title = "ACCR Stats"
-image_filename = 'C:/Users/cbon/PycharmProjects/accr-stats-viz/assets/EURO2020_Mobile_and_Tablets/Social Media_Facebook_profile_generic.jpg' # replace with your own image
+image_filename = 'assets/EURO2020_Mobile_and_Tablets/Social Media_Facebook_profile_generic.jpg' # replace with your own image
 encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 
 
